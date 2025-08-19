@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trisha Mae Santiago – Portfolio</title>
+  <meta name="description" content="Portfolio of Trisha Mae Q. Santiago – BSIT (Mobile & Web), Cum Laude. Web & graphic design projects, background, and contact." />
+  <meta property="og:title" content="Trisha Mae Santiago – Portfolio" />
+  <meta property="og:description" content="Web & graphic design projects, background, and contact." />
+  <meta name="theme-color" content="#111827" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #121829;
+      --text: #e5e7eb;
+      --muted: #9aa4b2;
+      --accent: #7c3aed;
+      --ring: rgba(124, 58, 237, .35);
+      --border: #232a3b;
+      --chip: #1a2236;
+      --chipText: #cbd5e1;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(124, 58, 237, .15), transparent 50%),
+                  radial-gradient(1200px 600px at 0% 0%, rgba(59, 130, 246, .12), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: rgba(11, 15, 25, .65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { font-family: Poppins, Inter, sans-serif; font-weight: 700; letter-spacing: .3px; }
+    .brand span { color: var(--accent); }
+    .nav a { color: var(--muted); padding: 10px 14px; border-radius: 10px; font-weight: 600; font-size: 14px; }
+    .nav a:hover { color: var(--text); background: #0f1524; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; padding: 64px 0 24px; }
+    .badge { display: inline-flex; gap: 10px; align-items: center; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: #0f1524; }
+    .title { margin: 14px 0 10px; font-size: clamp(36px, 6vw, 60px); line-height: 1.05; font-family: Poppins, Inter, sans-serif; }
+    .title strong { color: var(--accent); }
+    .subtitle { color: var(--muted); font-size: 18px; }
+    .cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border); font-weight: 700; }
+    .btn.primary { background: linear-gradient(135deg, #7c3aed, #2563eb); border-color: transparent; color: white; box-shadow: 0 10px 30px -10px var(--ring); }
+    .btn:hover { transform: translateY(-1px); transition: .2s ease; }
+    .portrait { aspect-ratio: 1/1; border-radius: 24px; overflow: hidden; background: var(--card); border: 1px solid var(--border); display: grid; place-items: center; color: var(--muted); }
+
+    /* Section */
+    section { padding: 56px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 18px; }
+    h2 { font-size: clamp(22px, 3.2vw, 32px); margin: 0 0 8px; font-family: Poppins, Inter, sans-serif; }
+    .section-sub { color: var(--muted); }
+
+    /* Cards */
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 18px; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; background: var(--chip); color: var(--chipText); border-radius: 999px; border: 1px solid var(--border); font-size: 12px; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 2px; background: #26304a; }
+    .tl-item { position: relative; padding-left: 36px; margin: 18px 0; }
+    .dot { position: absolute; left: 2px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(124,58,237,.15); }
+    .tl-title { font-weight: 700; }
+    .tl-meta { color: var(--muted); font-size: 14px; }
+
+    /* Gallery */
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter { padding: 8px 12px; border-radius: 999px; background: var(--chip); border: 1px solid var(--border); color: var(--chipText); font-weight: 600; cursor: pointer; }
+    .filter[aria-pressed="true"] { background: linear-gradient(135deg, #7c3aed, #2563eb); color: white; border-color: transparent; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+    .tile { position: relative; background: #0f1524; border: 1px solid var(--border); border-radius: 16px; aspect-ratio: 4/3; overflow: hidden; display: grid; place-items: center; color: var(--muted); }
+    .tile img { width: 100%; height: 100%; object-fit: cover; }
+    .tile .tag { position: absolute; left: 10px; top: 10px; }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; }
+    .list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .list li { display: grid; grid-template-columns: 120px 1fr; gap: 10px; align-items: center; padding: 12px; border-radius: 12px; background: var(--chip); border: 1px solid var(--border); }
+    .list strong { color: #c3c8d4; }
+
+    /* Footer */
+    footer { padding: 26px 0 56px; color: var(--muted); text-align: center; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      .grid.cols-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .gallery { grid-template-columns: 1fr; }
+      .list li { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">Trisha Mae <span>Santiago</span></div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#background">Background</a>
+        <a href="#work">My Designs</a>
+        <a href="#gallery">Project Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+ 
+  <div class="container hero" id="home">
+    <div>
+      <div class="badge" aria-label="Intro badge">Recently graduated • Cum Laude</div>
+      <h1 class="title">Hello, I am <strong>Trisha</strong>! 👋</h1>
+      <p class="subtitle">BSIT – Mobile & Web Applications. I design and build functional, visually appealing websites and create graphics for logos, pubmats, and posters.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Work with me</a>
+        <a class="btn" href="#gallery">See my projects</a>
+      </div>
+    </div>
+    <div class="portrait" aria-label="Profile image">
+      <img src="assets/trisha.jfif" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+  </div>
+  
+
+ 
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>About Trisha Mae</h2>
+          <p class="section-sub">BSIT fresh graduate from National University – Dasmariñas • Cum Laude</p>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>
+            I am passionate for creating functional and visually appealing websites that provide excellent user experience.
+          </p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px">
+            <span class="chip">HTML/CSS/JS</span>
+            <span class="chip">Graphic Design</span>
+            <span class="chip">Accessibility</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="grid cols-2">
+            <div>
+              <div class="tl-title">National University – Dasmariñas</div>
+              <div class="tl-meta">Bachelor of Information Technology (2021–2025)</div>
+            </div>
+            <div>
+              <div class="tl-title">Distinction</div>
+              <div class="tl-meta">Cum Laude</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="background">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Background</h2>
+          <p class="section-sub">Education and internships</p>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3 style="margin-top:0">Education</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="dot" aria-hidden="true"></div>
+              <div class="tl-title">National University – Dasmariñas</div>
+              <div class="tl-meta">Bachelor of Information Technology • 2021–2025</div>
+              <div class="tl-meta">Specialization: Mobile and Web Applications • Cum Laude</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Experience</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="dot" aria-hidden="true"></div>
+              <div class="tl-title">Xurpas Enterprise</div>
+              <div class="tl-meta">Internship • Apr 2025 – Jun 2025</div>
+            </div>
+            <div class="tl-item">
+              <div class="dot" aria-hidden="true"></div>
+              <div class="tl-title">EastWest Banking Corporation</div>
+              <div class="tl-meta">Internship • Dec 2024 – Mar 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>My designs</h2>
+          <p class="section-sub">Capstone Project – Website Header & Landing Page</p>
+        </div>
+        <a class="btn" href="#gallery">Open full gallery</a>
+      </div>
+  
+      <div class="grid cols-3">
+        <div class="tile">
+          <span class="tag chip">Header</span>
+          <img src="assets/header.jfif" alt="Capstone Header Preview" onclick="openModal(this)" style="width:100%; height:auto; object-fit:cover; border-radius:12px;">
+          <span>Capstone Header Preview</span>
+        </div>
+  
+        <div class="tile">
+          <span class="tag chip">Landing</span>
+          <img src="assets/landing.jfif" alt="Landing Page Preview" onclick="openModal(this)" style="width:100%; height:auto; object-fit:cover; border-radius:12px;">
+          <span>Landing Page Preview</span>
+        </div>
+  
+        <div class="tile">
+          <span class="tag chip">UI</span>
+          <img src="assets/ui.jfif" alt="Additional UI Screen" onclick="openModal(this)" style="width:100%; height:auto; object-fit:cover; border-radius:12px;">
+          <span>Additional UI Screen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <div id="imgModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999; flex-direction:column;">
+    <span onclick="closeModal()" style="position:absolute; top:20px; right:30px; font-size:36px; color:#fff; cursor:pointer;">&times;</span>
+    <img id="modalImg" style="max-width:90%; max-height:90%; border-radius:12px;" />
+  </div>
+  
+ 
+  <script>
+  function openModal(img) {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
+  }
+  function closeModal() {
+    document.getElementById('imgModal').style.display = 'none';
+  }
+  </script>
+  
+
+
+  <section id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Project Gallery</h2>
+          <p class="section-sub">Here are some of the graphic designs I worked on</p>
+        </div>
+      </div>
+
+      <div class="filters" role="toolbar" aria-label="Gallery filters">
+        <button class="filter" aria-pressed="true" data-filter="all">All</button>
+        <button class="filter" aria-pressed="false" data-filter="logo">LOGO</button>
+        <button class="filter" aria-pressed="false" data-filter="pubmats">PUBMATS</button>
+        <button class="filter" aria-pressed="false" data-filter="posters">POSTERS</button>
+      </div>
+
+     
+<div class="gallery" id="galleryGrid">
+
+  <figure class="tile" data-cat="logo">
+    <span class="tag chip">Logo</span>
+    <img src="assets/logo1.jpg" alt="Logo design 1" onclick="openModal(this)">
+  </figure>
+
+  <figure class="tile" data-cat="logo">
+    <span class="tag chip">Logo</span>
+    <img src="assets/logo2.jfif" alt="Logo design 2" onclick="openModal(this)">
+  </figure>
+
+  <figure class="tile" data-cat="pubmats">
+    <span class="tag chip">Pubmats</span>
+    <img src="assets/3.jfif" alt="Pubmats design 1" onclick="openModal(this)">
+  </figure>
+
+  <figure class="tile" data-cat="pubmats">
+    <span class="tag chip">Pubmats</span>
+    <img src="assets/1.jfif" alt="Pubmats design 2" onclick="openModal(this)">
+  </figure>
+
+  <figure class="tile" data-cat="posters">
+    <span class="tag chip">Posters</span>
+    <img src="assets/6.jfif" alt="Poster design 1" onclick="openModal(this)">
+  </figure>
+
+  <figure class="tile" data-cat="posters">
+    <span class="tag chip">Posters</span>
+    <img src="assets/8.jfif" alt="Poster design 2" onclick="openModal(this)">
+  </figure>
+
+</div>
+
+
+<div id="imgModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999; flex-direction:column;">
+  <span onclick="closeModal()" style="position:absolute; top:20px; right:30px; font-size:36px; color:#fff; cursor:pointer;">&times;</span>
+  <img id="modalImg" style="max-width:90%; max-height:90%; border-radius:12px;" />
+</div>
+
+
+<script>
+function openModal(img) {
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+  modal.style.display = 'flex';
+  modalImg.src = img.src;
+}
+function closeModal() {
+  document.getElementById('imgModal').style.display = 'none';
+}
+</script>
+
+
+  
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Let’s create impactful visuals</h2>
+          <p class="section-sub">Reach out if you want to create impactful visual art together.</p>
+        </div>
+      </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Contact details</h3>
+          <ul class="list">
+            <li>
+              <strong>Email</strong>
+              <a href="mailto:trishasantiago0709@gmail.com">trishasantiago0709@gmail.com</a>
+            </li>
+            <li>
+              <strong>Viber</strong>
+              <a href="tel:+639561672228">0956 167 2228</a>
+            </li>
+            <li>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/trisha-mae-santiago-22a323336" target="_blank" rel="noreferrer">Trisha Mae Santiago</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Trisha Mae Santiago • Built with love & clean code ✨</div>
+  </footer>
+
+  <style>
+    
+    .field { display: grid; gap: 8px; margin-bottom: 12px; }
+    .field input, .field textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: #0f1524; color: var(--text); outline: none; }
+    .field input:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); }
+  </style>
+
+  <script>
+    
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+        const filters = document.querySelectorAll('.filter');
+    const tiles = document.querySelectorAll('#galleryGrid .tile');
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        const cat = btn.dataset.filter;
+        tiles.forEach(t => {
+          const show = cat === 'all' || t.dataset.cat === cat;
+          t.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+   
+    function validateForm(e) {
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !email || !message) return false;
+      return true;
+    }
+  </script>
+</body>
+</html>
